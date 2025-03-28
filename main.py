@@ -55,7 +55,11 @@ num_questions = st.number_input("輸入測試題數", min_value=1, max_value=len
 test_type = st.radio("請選擇測試類型：", ["拼寫測試", "填空測試"])
 
 # 初始化 Session State
-if "initialized" not in st.session_state or st.session_state.selected_book != selected_book:
+if (
+    "initialized" not in st.session_state
+    or st.session_state.selected_book != selected_book
+    or st.session_state.num_questions != num_questions
+):
     st.session_state.words = get_unique_words(num_questions)
     st.session_state.current_index = 0
     st.session_state.score = 0
@@ -63,6 +67,7 @@ if "initialized" not in st.session_state or st.session_state.selected_book != se
     st.session_state.submitted = False
     st.session_state.input_value = ""
     st.session_state.selected_book = selected_book
+    st.session_state.num_questions = num_questions  # 記住目前題數
     st.session_state.initialized = True
 
 if st.session_state.current_index < len(st.session_state.words):
