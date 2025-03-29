@@ -30,7 +30,7 @@ def get_unique_words(num_words):
 
 # 隱藏單字
 def mask_word(sentence, word):
-    return sentence.replace(word, "＿" * len(word))
+    return sentence.replace(word, "◯" * len(word))
 
 # AI 發音
 def play_pronunciation(text, filename="pronunciation.mp3", wav_filename="pronunciation.wav"):
