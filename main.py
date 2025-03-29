@@ -70,6 +70,7 @@ if (
     st.session_state.num_questions = num_questions  # 記住目前題數
     st.session_state.initialized = True
 
+# 顯示題目
 if st.session_state.current_index < len(st.session_state.words):
     test_word, meaning, example_sentence = st.session_state.words[st.session_state.current_index]
     st.write(f"🔍 提示：{meaning}")
@@ -77,6 +78,7 @@ if st.session_state.current_index < len(st.session_state.words):
     if st.button("播放發音 🎵"):
         play_pronunciation(test_word if test_type == "拼寫測試" else example_sentence)
 
+    # 顯示題目與輸入框
     if test_type == "拼寫測試":
         user_answer = st.text_input(
             "請輸入單字的正確拼寫：",
@@ -97,6 +99,7 @@ if st.session_state.current_index < len(st.session_state.words):
     if st.button("提交答案"):
         st.session_state.submitted = True
 
+    # 答案判斷（使用 clean_text）
     if st.session_state.submitted:
         if clean_text(user_answer) == clean_text(test_word):
             st.success("✅ 正確！")
@@ -112,6 +115,7 @@ if st.session_state.current_index < len(st.session_state.words):
         st.session_state.current_index += 1
         st.rerun()
 
+# 測驗結束
 else:
     st.write(f"🎉 測試結束！你的得分：{st.session_state.score}/{len(st.session_state.words)}")
 
