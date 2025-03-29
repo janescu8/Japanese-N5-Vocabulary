@@ -7,9 +7,10 @@ import time
 from pydub import AudioSegment
 
 # 匯入所有書籍的單字庫
-
+from mika_56 import word_data as mika_56
 # 書籍選擇
 book_options = {
+    "#56新しいしゅみ 【N5】 My new hobby (for N5 listeners)": mika_56,
 }
 
 st.title("📚 日文單字測試遊戲")
