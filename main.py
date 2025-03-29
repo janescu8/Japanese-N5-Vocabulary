@@ -8,9 +8,12 @@ from pydub import AudioSegment
 
 # 匯入所有書籍的單字庫
 from mika_56 import word_data as mika_56
+from duo_ja_20250329 import word_data as duo_ja_20250329
+
 # 書籍選擇
 book_options = {
     "#56新しいしゅみ 【N5】 My new hobby (for N5 listeners)": mika_56,
+    "Duolingo 日本語 SECTION 5, UNIT 1 20250329": duo_ja_20250329,
 }
 
 st.title("📚 日文單字測試遊戲")
